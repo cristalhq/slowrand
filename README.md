@@ -12,6 +12,10 @@ Slow deterministic random generator.
 Some problems might require random deterministic generator, but this might be problematic due to brute-force attacks.
 This (deterministic) random generator addresses this problem by increasing it's work time.
 
+## Note
+
+Inspired by [cornfeedhobo/ssh-keydgen](https://github.com/cornfeedhobo/ssh-keydgen)
+
 ## Features
 
 - Slow
