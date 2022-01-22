@@ -2,36 +2,22 @@ name: build
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to create'
+        required: true
+        default: 'v0.0.0'
 
+# See https://github.com/cristalhq/.github/.github/workflows
 jobs:
-
   build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
+    uses: cristalhq/.github/.github/workflows/build.yml@main
 
-    - name: Set up Go 1.x
-      uses: actions/setup-go@v2
-      with:
-        go-version: ^1.15
-
-    - name: Check out code into the Go module directory
-      uses: actions/checkout@v2
-
-    - name: Download module dependencies
-      env: 
-         GOPROXY: "https://proxy.golang.org"
-      run: go mod download
-
-    - name: Test
-      run: go test -v -coverprofile=coverage.txt ./...
-
-    - name: Upload Coverage
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{secrets.CODECOV_TOKEN}}
-        file: ./coverage.txt
-        fail_ci_if_error: false
+  release:
+    if: github.event_name == 'workflow_dispatch'
+    uses: cristalhq/.github/.github/workflows/release.yml@main
+    with:
+      tag: ${{ github.event.input.tag }}
