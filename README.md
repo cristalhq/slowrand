@@ -4,6 +4,7 @@
 [![pkg-img]][pkg-url]
 [![reportcard-img]][reportcard-url]
 [![coverage-img]][coverage-url]
+[![version-img]][version-url]
 
 Slow deterministic random generator.
 
@@ -67,5 +68,7 @@ See [these docs][pkg-url].
 [pkg-url]: https://pkg.go.dev/github.com/cristalhq/slowrand
 [reportcard-img]: https://goreportcard.com/badge/cristalhq/slowrand
 [reportcard-url]: https://goreportcard.com/report/cristalhq/slowrand
-[coverage-img]: https://codecov.io/gh/cristalhq/slowrand/branch/master/graph/badge.svg
+[coverage-img]: https://codecov.io/gh/cristalhq/slowrand/branch/main/graph/badge.svg
 [coverage-url]: https://codecov.io/gh/cristalhq/slowrand
+[version-img]: https://img.shields.io/github/v/release/cristalhq/slowrand
+[version-url]: https://github.com/cristalhq/slowrand/releases
