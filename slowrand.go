@@ -28,7 +28,6 @@ type Reader struct {
 // New instance of slow reader.
 // Seed as a start of the pseudorandom sequence.
 // Rounds, time, memory and threads are params to the underlying PBKDF2 & Argon2 algorithms.
-//
 func New(seed []byte, rounds int, time, memory uint32, threads uint8) (*Reader, error) {
 	switch {
 	case len(seed) == 0:
