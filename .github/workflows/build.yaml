@@ -6,24 +6,12 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: '0 0 * * 0'
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: 'Tag to create'
-        required: true
-        default: 'v0.0.0'
+    - cron: '0 0 * * 0' # run "At 00:00 on Sunday"
 
 # See https://github.com/cristalhq/.github/.github/workflows
 jobs:
   build:
-    uses: cristalhq/.github/.github/workflows/build.yml@518b7d4706840d9725929cf220241de03bd12a94 # v0.6.0
+    uses: cristalhq/.github/.github/workflows/build.yml@v0.6.0
 
   vuln:
-    uses: cristalhq/.github/.github/workflows/vuln.yml@518b7d4706840d9725929cf220241de03bd12a94 # v0.6.0
-
-  release:
-    if: github.event_name == 'workflow_dispatch'
-    uses: cristalhq/.github/.github/workflows/release.yml@518b7d4706840d9725929cf220241de03bd12a94 # v0.6.0
-    with:
-      tag: ${{ github.event.input.tag }}
+    uses: cristalhq/.github/.github/workflows/vuln.yml@v0.6.0
