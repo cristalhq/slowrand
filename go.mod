@@ -2,4 +2,4 @@ module github.com/cristalhq/slowrand
 
 go 1.15
 
-require golang.org/x/crypto v0.15.0
+require golang.org/x/crypto v0.16.0
